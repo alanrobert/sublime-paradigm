@@ -1,0 +1,565 @@
+/* ============
+    reset
+================*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body
+ {
+  margin: 0;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  color: #404040;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* =================
+    general layout
+==================== */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: minmax(1em, 1fr) minmax(0, 500px) minmax(1em, 1fr);
+    grid-column-gap: 1em;
+}
+
+@media (min-width: 600px) {
+    .main-grid {
+        grid-template-columns: minmax(1em, 1fr) repeat(3, minmax(100px,320px)) minmax(1em, 1fr);
+    }
+}
+
+/* navigation */
+
+.current {
+    border-bottom: 2px solid #ffffa9;
+}
+
+.header > * {
+    grid-column: 2 / -2;
+}
+
+.header {
+    background-color: #000;
+    font-weight: 700;
+}
+
+.header-content {
+    display: flex;
+}
+
+.logo-link {
+    /* background-color: #f1e319; */
+    /* padding-top: 2.5em; */
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+.header-home {
+    background: transparent;
+    position: absolute;
+    width: 100%;
+}
+
+
+
+.nav {
+    position: fixed;
+    background-color: #000;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    transform: translateX(0);
+    transition: transform .5s;
+}
+
+.navigation-open {
+    transform: translateX(-100%);
+    transition: transform .5s;
+}
+
+
+.nav-list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* background-color: #000; */
+    list-style: none;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #ffffe9;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #ffffe9;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color:#ffffe9;
+    width: 250px;
+}
+
+.close-nav {
+    background: 0;
+    color: #ffffe9;
+    border: none;
+    font-weight: 700;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 0 .4em;
+    position: absolute;
+}
+
+.open-nav {
+    background: 0;
+    color: #0c2400;
+    border: none;
+    font-weight: 700;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 .4em;
+    margin-left: auto;
+}
+
+@media (min-width: 600px) {
+
+    .open-nav,
+    .close-nav {
+        display: none;
+    }
+
+    .nav {
+        position: initial;
+        
+        
+    }
+
+    .nav-list {
+        flex-direction: row;
+        font-size: 1rem;
+        justify-content: end;
+    }
+
+    .nav-item {
+        margin-left: 3em;
+    }
+
+    .header-home .nav {
+        background: transparent;
+    }
+
+    .hero > * {
+        margin-right: 0;
+    }
+
+}
+
+@media (min-width: 400px) {
+    .hero > * {
+        margin-right: 20%;
+    }
+}
+
+@media (min-width: 600px) {
+    .hero > * {
+        margin-right: 0;
+    }
+}
+
+/* footer */
+
+.footer {
+    background-color: #f5f5f5;
+    padding: 4em 0;
+    margin-top: 2em;
+}
+
+.footer-content {
+    grid-column: 2 / -2;
+    text-align: center;
+    opacity: 50%;
+}
+
+.footer-img {
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+
+.footer-body {
+    margin-bottom: 2em;
+}
+
+.social-list {
+    grid-column: 2 / -2;
+    order: -1;
+    padding: 0;
+    margin: 0 0 2em 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1em;
+    list-style: none;
+}
+
+.social-link {
+    color:#404040;
+    font-weight: 700;
+    opacity: .5;
+}
+
+.trademark {
+    font-size: .8rem;
+}
+
+@media (min-width: 600px) {
+
+    .footer {
+        padding: 6em 0;
+    }
+
+    .footer-content {
+        grid-column: 2 / 4;
+        text-align: left;
+    }
+
+    .footer-img {
+        margin: 0;
+        margin-bottom: 2em;
+    }
+
+    .social-list {
+        grid-column: 4 / 6;
+        justify-self: center;
+        order: 2;
+        margin: 0;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
+
+/* ==============
+    Typography
+================ */
+
+strong,
+h1,
+h2 {
+    font-weight: 700;
+}
+
+.text-accent {
+    color: #ffffa9; 
+}
+
+.hero-title {
+    line-height: 1.4;
+    font-size: 1.5rem;
+    grid-column: 3 / 5;
+    color: #ffffe9;
+}
+
+.info-title {
+    margin-bottom:1em
+}
+
+/* template page */
+
+.page-title {
+    font-size: 2.5rem;
+    color: #ffffe9;
+    margin-bottom: .2em;
+    justify-self: center;
+}
+
+.subtitle {
+    margin-bottom: 2em;
+}
+
+.page-title,
+.subtitle {
+    text-align: center;
+}
+
+.main-text {
+    color: #000;
+}
+
+.page-title::after {
+    content: "";
+    display: block;
+    background-color: #ffffa9;
+    width: 100%;
+    height: 30px;
+    margin-top: -35px;
+    margin-left: 15px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 4rem;
+    background-color:#f1e319;
+    margin: 10px 0 0;
+}
+
+.section-title-centered::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title:first-child {
+    margin-top: 0;
+}
+
+
+.template-page > * {
+    grid-column: 2 / -2;
+}
+
+
+/* ============
+    hero area
+=============== */
+
+.hero {
+    background-image: url("/img/johannes-plenio-DKix6Un55mw-unsplash-2.jpg");
+    background-blend-mode: multiply;
+    /* background-color: #dbdbdb; */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    padding: 8em 0 5em;
+}
+
+.hero > * {
+    grid-column: 2 / -2;
+}
+
+@media (min-width: 600px) {
+    .hero > * {
+        grid-column: 2 / 4;
+    }
+
+    
+}
+
+.hero-title {
+    margin-bottom: 1em;
+}
+
+.hero-body {
+    margin-bottom: 3em;
+}
+
+/* buttons */
+
+.btn {
+    padding: .75em 2.5em;
+    margin-top: .5em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .25s ease-in-out;
+    border: none;
+}
+
+.btn-primary {
+    justify-self: start;
+    background-color: #ffffa9;
+    color: black;
+    align-self: start;
+}
+
+.btn-form {
+    justify-self: end;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #cabe16;
+    cursor: pointer;
+}
+
+
+
+/* ================
+    info section
+=================== */
+
+.info-section {
+    padding: 4em 0;
+}
+
+.col {
+    grid-column: 2 / -2;
+    padding: 1.5em .5em;
+    text-align: center;
+}
+
+@media (min-width: 600px) {
+    .col {
+        grid-column: span 1;
+    }
+
+    .col:first-child {
+        grid-column: 2 / span 1;
+    }
+}
+
+/* =================
+    template page
+==================== */
+
+.section-img {
+    grid-column: 2 / -2;
+    margin-bottom: 2em;
+    box-shadow: 7px 7px 0 rgb(0, 0, 0), 14px 14px 0 #f1e319;
+}
+
+
+@media (min-width: 600px) {
+
+    .page-title,
+    .subtitle {
+        grid-column: 2 / -2;
+        text-align: center;
+    }
+
+    .page-title {
+        padding-top: 2em;
+    }
+
+    .subtitle {
+        margin: 1em 0 6em;
+    }
+
+    .section-img,
+    .secondary-text {
+        grid-column: 2 / 3;
+    }
+
+    .main-text {
+        grid-column: 3 / 5;
+        grid-row: span 2;
+        margin-left: 2em;
+        margin-bottom: 6em;
+    }
+
+    .secondary-text {
+        order: 2;
+        /* margin-top: -5.5em; */
+    }
+}
+
+/* =================
+        form
+==================== */
+
+.contact-form {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-gap: .5em 1em;
+}
+
+label {
+    font-weight: 700;
+}
+
+input, 
+textarea {
+    margin-bottom: .75em;
+    padding: .4em;
+    font-family: inherit;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+@media (min-width: 600px) {
+    .contact-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fname-label,
+    .fname-input {
+        grid-column: 1 / 2;
+    }
+
+    .lname-label,
+    .lname-input {
+        grid-column: 2 / 3;
+    }
+
+    .message-label,
+    .message-textarea {
+        grid-column: 1 / -1;
+    }
+
+    .btn-form {
+        grid-column: 2;
+    }
+
+}
+
+
+
+
+
