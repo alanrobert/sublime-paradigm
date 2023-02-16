@@ -13,6 +13,8 @@ body
   margin: 0;
 }
 
+
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
@@ -98,7 +100,11 @@ select {
     width: 100%;
 }
 
-
+.header-template {
+    background-image: url('/img/johannes-plenio-DKix6Un55mw-unsplash-2.jpg');
+    background-position: top;
+    background-size: cover;
+}
 
 .nav {
     position: fixed;
@@ -110,6 +116,10 @@ select {
     right: 0;
     transform: translateX(0);
     transition: transform .5s;
+}
+
+.template-nav {
+    background: transparent;
 }
 
 .navigation-open {
@@ -138,13 +148,18 @@ select {
 
 .nav-link:hover,
 .nav-link:focus {
-    color: #ffffe9;
+    color: #ffffa9;
 }
 
 .logo {
     font-size: 1.5rem;
     color:#ffffe9;
     width: 250px;
+}
+
+.logo:hover,
+.logo:focus {
+    color: #ffffa9;
 }
 
 .close-nav {
@@ -160,13 +175,17 @@ select {
 
 .open-nav {
     background: 0;
-    color: #0c2400;
+    color: #fff;
     border: none;
     font-weight: 700;
     font-size: 2rem;
     cursor: pointer;
     padding: 0 .4em;
     margin-left: auto;
+}
+
+.open-nav:hover {
+    color: #ffffa9;
 }
 
 @media (min-width: 600px) {
@@ -222,6 +241,12 @@ select {
     margin-top: 2em;
 }
 
+.footer-logo {
+    font-size: 1.5rem;
+    color:#ffffe9;
+    width: 250px;
+}
+
 .footer-content {
     grid-column: 2 / -2;
     text-align: center;
@@ -263,6 +288,10 @@ select {
 
     .footer {
         padding: 6em 0;
+    }
+
+    .footer-logo {
+        color: #303030;
     }
 
     .footer-content {
@@ -315,7 +344,7 @@ h2 {
 
 .page-title {
     font-size: 2.5rem;
-    color: #ffffe9;
+    color: #0c0148;
     margin-bottom: .2em;
     justify-self: center;
 }
@@ -354,7 +383,7 @@ h2 {
     display: block;
     height: 3px;
     width: 4rem;
-    background-color:#f1e319;
+    background-color:#ffffa9;
     margin: 10px 0 0;
 }
 
@@ -469,7 +498,7 @@ h2 {
 .section-img {
     grid-column: 2 / -2;
     margin-bottom: 2em;
-    box-shadow: 7px 7px 0 rgb(0, 0, 0), 14px 14px 0 #f1e319;
+    box-shadow: 7px 7px 0 #ffffa9, 14px 14px 0 #ffffa984;
 }
 
 
